@@ -41,7 +41,10 @@ Click on the play icon next to the rest call to choose the Alfresco environment 
 ![acs_rest_api_within_jetbrains_ide.png](docs/img/acs_rest_api_within_jetbrains_ide.png)
 
 You can specify additional variables in the settings ([rest-client.env.json](/acs_rest_api/rest-client.env.json))
-and use them in your REST call by using ```{{variablename}}``` 
+and use them in your REST call by using ```{{variablename}}```
+
+Example usage within [IntelliJ IDEA](https://www.jetbrains.com/idea/):
+![acs_rest_api_example_usage_in_intellj.gif](docs/img/acs_rest_api_example_usage_in_intellj.gif)
 
 #### TestData
 
