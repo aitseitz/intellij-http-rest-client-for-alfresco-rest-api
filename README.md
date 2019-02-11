@@ -7,13 +7,14 @@ with the build in HTTP Rest Client from Jetbrains.
 Similar to tools like Postman, you can use this project to enhance your Alfresco development.
 
 ## Requirements
-* JetBrains IDE of your choice to be able to use the build in HTTP REST Client<br/>
+* JetBrains IDE of your choice with the build in HTTP REST Client<br/>
   [https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
   
 ## How do I use this project?
-You can either use this project as a template and copy only the needed files to your current Alfresco SDK project.
-For example you can copy the [acs_rest_api](acs_rest_api) folder into your /src/test folder of your Alfresco all-in-one project and modify them to test your custom api.
-Or just clone this project and use this project in addition to your current development workflow.
+You can either use this project as a template or just copy specific files to your current Alfresco SDK project.
+For example you can copy the [acs_rest_api](acs_rest_api) folder into the /src/test folder of your Alfresco all-in-one project and modify them to test your custom API.
+
+Or you may just clone this project and use it in addition to your current development workflow.
 
 
 ### Configuration
@@ -40,7 +41,7 @@ Click on the play icon next to the rest call to choose the Alfresco environment 
 ![acs_rest_api_within_jetbrains_ide.png](docs/img/acs_rest_api_within_jetbrains_ide.png)
 
 You can specify additional variables in the settings ([rest-client.env.json](/acs_rest_api/rest-client.env.json))
-and use them in your REST call with ```{{variablename}}``` 
+and use them in your REST call by using ```{{variablename}}``` 
 
 #### TestData
 
@@ -49,8 +50,8 @@ In the [testdata](testdata) folder are some example files from the [Sample: Web 
 
 ## Contribution
 
-This is an alfresco project for the community. If you work with this project please contribute & share your enhancements.
-Feel free to fork this project and send me pull requests so one day we're covering the full feature list of the Alfresco API within the jetbrains ide.
+This is an Alfresco project for the community. If you work with this project please contribute & share your enhancements.
+Feel free to fork this project and send me pull requests. The goal is to one day cover the full feature list of the Alfresco API within the Jetbrains IDE.
 
 ### Additional Links
 
