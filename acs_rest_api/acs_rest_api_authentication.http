@@ -1,0 +1,27 @@
+# https://api-explorer.alfresco.com/api-explorer/#/authentication
+
+# ...:::=== ALFRESCO AUTHENTICATION API ===:::... #
+
+
+###
+# Create an Authentication Ticket (Login)
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/authentication/versions/1/tickets
+authority: bewis.it-novum.com
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  password: "admin",
+  userId: "admin"
+}
+
+
+###
+# Validates the tickets and gives information about the logged in user (here admin)
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/authentication/versions/1/tickets/-me-
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

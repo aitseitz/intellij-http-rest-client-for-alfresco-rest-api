@@ -1,0 +1,21 @@
+# https://api-explorer.alfresco.com/api-explorer/#/people
+
+# ...:::=== ALFRESCO PEOPLE API ===:::... #
+
+
+###
+# List all users in acs
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Delete an user by its username
+# rember: user-profil folder will not
+DELETE {{protocol}}{{alfresco-host}}:{{port}}/alfresco/s/api/people/username
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

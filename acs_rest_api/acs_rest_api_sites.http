@@ -1,0 +1,53 @@
+# https://api-explorer.alfresco.com/api-explorer/#/sites
+
+# ...:::=== ALFRESCO SITE API - C.R.U.D. OPERATIONS ===:::... #
+
+### C = CREATE ###
+
+###
+# Create an alfresco site with public API
+# make sure auth-manager "mjackson" is active and have pwd "mike1234"
+# make sure this site id does not exists in the trashcan, otherwise it can't be created
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/
+Authorization: {{auth-manager}}
+Accept: application/json
+Cache-Control: no-cache
+
+{
+  "role": "SiteManager",
+  "visibility": "PUBLIC",
+  #"guid": "0917ddf0-040b-4e7c-98aa-08d6f4e03312",
+  "description": "Alfresco test page",
+  "id": "{{test-site-id}}",
+  #"preset": "site-dashboard",
+  "title": "Alfresco Test Site"
+}
+###
+
+
+### R = READ ###
+
+###
+# Check whether an alfresco site with given siteId exists and get site information as response
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}
+Authorization: {{auth-manager}}
+Accept: application/json
+Cache-Control: no-cache
+###
+
+### D = DELETE ###
+
+###
+# Delete an alfresco site with given siteId
+# permanent => Flag to indicate whether the site should be permanently deleted i.e. bypass the trashcan
+# Response code: 204 for successfull deletion.
+DELETE {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}?permanent=true
+Authorization: {{auth-manager}}
+Accept: application/json
+Cache-Control: no-cache
+###
+
+
+
+
+

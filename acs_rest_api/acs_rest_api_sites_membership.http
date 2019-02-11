@@ -1,0 +1,57 @@
+# https://api-explorer.alfresco.com/api-explorer/#/sites
+
+# ...:::=== SITE MEMBER OPERATIONS ===:::... #
+
+
+###
+# REST Call to get all site members from a site
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}/members
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+###
+# Creates a site membership for a user personId on site siteId.
+# You can set the role to one of four types:
+# SiteConsumer
+# SiteCollaborator
+# SiteContributor
+# SiteManager
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}/members
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "role" : "SiteManager",
+  "id" : "admin"
+}
+
+
+###
+# Creates a site membership for user with the role SiteCollaborator.
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}/members
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "role" : "SiteCollaborator",
+  "id" : "abeecher"
+}
+###
+
+###
+# Deletes the site membership for user
+DELETE {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/sites/{{test-site-id}}/members/abeecher
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "personId" : "abeecher",
+  "siteId" : {{test-site-id}}
+}
+###
+

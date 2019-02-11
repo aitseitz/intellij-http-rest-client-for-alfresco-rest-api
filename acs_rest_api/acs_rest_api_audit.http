@@ -1,0 +1,66 @@
+# https://api-explorer.alfresco.com/api-explorer/#/audit
+
+# ...:::=== ALFRESCO AUDIT API ===:::... #
+
+
+###
+# Audit activated - Check the global status of auditing (enabled / disabled)
+GET http://{{alfresco-host}}:{{port}}/alfresco/service/api/audit/control
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+# List all available audit applications
+GET http://{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/audit-applications
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+# List all audit entries for an audit application
+GET http://{{alfresco-host}}:{{port}}/alfresco/service/api/audit/query/{{audit-application-id}}
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+#  List all audit entries for an audit application filtered
+GET http://{{alfresco-host}}:{{port}}//alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{{audit-application-id}}/audit-entries?skipCount=0&maxItems=100
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+
+
+###
+# List audit entries on site level
+GET http://{{alfresco-host}}:{{port}}/alfresco/service/api/audit/query/{{audit-application-id}}/node/siteName?verbose=true&value={{alfresco-site-id}}
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+
+
+
+###
+# Audit on Node / Object Level
+###
+
+###
+# List audit entries for CREATE node
+GET http://{{alfresco-host}}:{{port}}/alfresco/service/api/audit/query/{{audit-application-id}}/alfresco-access/transaction/action?verbose=true&value=CREATE
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+###
+
+###
+# List audit entries for DELETE node
+GET http://{{alfresco-host}}:{{port}}/alfresco/service/api/audit/query/{{audit-application-id}}//alfresco-access/transaction/action?verbose=true&value=DELETE
+Authorization: {{auth-admin}}
+Accept: application/json
+Cache-Control: no-cache
+###
+

@@ -1,0 +1,135 @@
+# https://api-explorer.alfresco.com/api-explorer/#/nodes
+
+# ...:::=== NODE OPERATIONS ===:::... #
+
+
+
+###
+# Get root node information
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get site information from a relativ Path (folder)
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=Sites/swsdp/documentLibrary/
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get metadata (UUID, node-type etc) from a certain NodeRef by its relativ Path
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/?relativePath=Sites/swsdp/documentLibrary/Presentations/Project+Objectives.ppt
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+###
+# Create a node in folder via upload an PDF file
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="filedata"; filename="Project_Contract.pdf"
+Content-Type: application/pdf
+
+< ./../testdata/Project_Contract.pdf
+--WebKitFormBoundary
+Content-Disposition: form-data; name="name"
+
+my-contract.pdf
+--WebKitFormBoundary
+Content-Disposition: form-data; name="relativePath"
+
+/Sites/{{alfresco-site-id}}/documentLibrary/import
+--WebKitFormBoundary
+
+
+###
+# Create a node in folder via upload an Excel file
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="filedata"; filename="budget.xml"
+Content-Type: application/vnd.ms-excel
+
+< ./../testdata/budget.xls
+--WebKitFormBoundary
+Content-Disposition: form-data; name="name"
+
+my-budget.xls
+--WebKitFormBoundary
+Content-Disposition: form-data; name="relativePath"
+
+/Sites/{{alfresco-site-id}}/documentLibrary/import
+--WebKitFormBoundary
+
+
+
+
+
+###
+# Create a node in an folder by uploading a .doc file
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="filedata"; filename="MeetingNotes.doc"
+
+< ./../testdata/MeetingNotes.doc
+--WebKitFormBoundary
+Content-Disposition: form-data; name="name"
+
+meeting_notes.doc
+--WebKitFormBoundary
+Content-Disposition: form-data; name="relativePath"
+
+/Sites/{{alfresco-site-id}}/documentLibrary/import
+--WebKitFormBoundary
+
+###
+
+###
+# Create a node with additional metadata using the default content model by uploading a doc file
+# Default Content Model:
+# https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/contentModel.xml
+POST {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="filedata"; filename="MeetingNotes.doc"
+
+< ./../testdata/MeetingNotes.doc
+--WebKitFormBoundary
+Content-Disposition: form-data; name="name"
+
+MeetingNotes_with_metadata.doc
+--WebKitFormBoundary
+Content-Disposition: form-data; name="relativePath"
+
+/Sites/{{alfresco-site-id}}/documentLibrary/import
+--WebKitFormBoundary
+Content-Disposition: form-data; name="cm:author"
+
+Alexander Seitz
+--WebKitFormBoundary
+Content-Disposition: form-data; name="cm:title"
+
+Example for Node creation with custom Metadata
+--WebKitFormBoundary
+Content-Disposition: form-data; name="cm:description"
+
+This document shows how metadata was set during the file upload via Alfresco REST API
+
+###
