@@ -1,3 +1,5 @@
+![devcon2019.png](/docs/img/decvon2019.png)
+
 # intellij-http-rest-client-for-alfresco-rest-api
 > Provides REST Snippets in Jetbrains's HTTP Client format to access the official Alfresco's REST API 
 
