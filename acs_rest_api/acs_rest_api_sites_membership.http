@@ -10,6 +10,20 @@ Authorization: {{auth-admin}}
 Cache-Control: no-cache
 Content-Type: application/json
 
+###
+# Get all site memberships of the current user (-me-)
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/-me-/sites
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get all site memberships of the user Mike Jackson
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson/sites
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
 
 ###
 # Creates a site membership for a user personId on site siteId.
