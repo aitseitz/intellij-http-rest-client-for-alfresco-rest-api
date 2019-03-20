@@ -1,1 +1,25 @@
 # https://api-explorer.alfresco.com/api-explorer/#/groups
+
+###
+# List all group memberships for the user mjackson
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson/groups?skipCount=0&maxItems=100
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List group memberships for the user mjackson filtered only by root groups
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson/groups?skipCount=0&maxItems=100&where=(isRoot=true)
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List group memberships for the user mjackson filtered by exact subgroup role
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson/groups?skipCount=0&maxItems=100&where=(isRoot=false)
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
