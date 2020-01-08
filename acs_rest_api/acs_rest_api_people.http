@@ -11,9 +11,27 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+# Get details of the user mjackson
+GET {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Disable the user mjackson
+PUT {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/people/mjackson
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "enabled": false
+}
+
+###
 # Delete an user by its username
 # rember: user-profil folder will not
-DELETE {{protocol}}{{alfresco-host}}:{{port}}/alfresco/s/api/people/username
+DELETE {{protocol}}{{alfresco-host}}:{{port}}/alfresco/s/api/people/mjackson
 Authorization: {{auth-admin}}
 Cache-Control: no-cache
 Content-Type: application/json
