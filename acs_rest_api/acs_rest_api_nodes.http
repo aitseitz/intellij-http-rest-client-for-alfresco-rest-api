@@ -133,3 +133,21 @@ Content-Disposition: form-data; name="cm:description"
 This document shows how metadata was set during the file upload via Alfresco REST API
 
 ###
+
+
+###
+# Update a Person Node (guest node id) with a new Aspect
+PUT {{protocol}}{{alfresco-host}}:{{port}}/alfresco/api/-default-/public/alfresco/versions/1/nodes/bd6dc643-1f87-442c-b9d0-3c9e3207caf8
+Authorization: {{auth-admin}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+ "aspectNames": [
+    "cm:personDisabled"
+  ]
+}
+
+###
+
+###
